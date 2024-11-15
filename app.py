@@ -12,7 +12,8 @@ from sections import (
     assets_liabilities,
     cash_flow,
     balance_sheet,
-    projections
+    projections,
+    retirement_scenarios
 )
 
 def init_session_state():
@@ -103,14 +104,15 @@ def render_client_workspace():
     
     # Navigation at top
     st.divider()
-    nav_col1, nav_col2, nav_col3, nav_col4, nav_col5 = st.columns(5)
+    nav_col1, nav_col2, nav_col3, nav_col4, nav_col5, nav_col6 = st.columns(6)
     
     pages = {
         nav_col1: ("📋 Client Information", 0),
         nav_col2: ("💰 Assets & Liabilities", 1),
         nav_col3: ("💵 Cash Flow", 2),
         nav_col4: ("📊 Balance Sheet", 3),
-        nav_col5: ("📈 Projections", 4)
+        nav_col5: ("📈 Projections", 4),
+        nav_col6: ("🎯 Retirement Analysis", 5)
     }
     
     for col, (page_name, page_idx) in pages.items():
@@ -136,6 +138,8 @@ def render_client_workspace():
         balance_sheet.render_balance_sheet(client, client_manager)
     elif st.session_state.current_tab == 4:
         projections.render_projections(client, client_manager)
+    elif st.session_state.current_tab == 5:
+        retirement_scenarios.render_retirement_scenarios(client, client_manager)
     
     # Profile completion and quick actions in sidebar
     with st.sidebar:
