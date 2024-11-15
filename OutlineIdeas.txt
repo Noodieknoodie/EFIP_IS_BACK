@@ -1,0 +1,70 @@
+Notes: going to use Jinja2 for the PDF generation. Needs to be super styled reports visually.
+CURRENTLY INSTALLED: Streamlit, Pandas, reportlab, Jinja2, Numpy, matplotlib, plotly, watchdog
+
+
+Phase One Blueprint: Retirement Projection Tool (Streamlit App)
+1. Application Overview
+Purpose: A Streamlit app for financial advisors to manage client retirement projections, calculate financial metrics, and generate client-specific reports.
+Data Storage: Client profiles stored as individual JSON files within a dedicated directory, accessible by the app to load data based on the selected client profile.
+2. User Interface Layout
+Sidebar:
+
+Displays a list of existing client profiles, sortable alphabetically by default, with the ability to "pin" key profiles for quick access.
+Includes an option to Create New Profile, Load Existing Profile, and a Generate PDF Report button.
+Sidebar remains minimal, serving as the main navigation area without additional clutter.
+Main Workspace:
+
+Organized in a tabbed layout with Basic Information and Assets tabs.
+Each profile, whether new or existing, will open to the Basic Information tab by default.
+3. Tabs & Detailed Layout Specifications
+3.1. Basic Information Tab
+Tab Structure:
+
+Contains two main columns for Client and Spouse information.
+This section captures essential details like names, birthdates, and retirement age, with built-in field logic to keep the interface clean.
+Fields:
+
+Client Column:
+First Name, Last Name, Date of Birth (auto-calculates current age).
+Retirement Age, with an “Already Retired” checkbox; if checked, Retirement Age field disappears.
+Spouse Column:
+First Name, Last Name, Date of Birth (auto-calculates age).
+Retirement Age with “Already Retired” checkbox, hiding the field if selected.
+3.2. Assets Tab
+Top Section: Summary Totals:
+
+Displays total values and subtotals for managed and unmanaged assets.
+Layout:
+Left-aligned at the top: Total Assets (title and calculated total below).
+Right-aligned at the top: Total Nest Egg Value (title and calculated total below).
+Subtotals:
+Directly beneath Total Assets: Total Managed Assets and Total Unmanaged Assets.
+Directly beneath Total Nest Egg Value: Total Nest Egg Managed and Total Nest Egg Unmanaged.
+Card Layout for Asset Categories:
+
+Default Categories: Taxable, Deferable, Tax-Free, and Personal Property.
+Card Format:
+Each category appears as a card within a two-column layout (left-right alignment). Cards are collapsible, showing only the asset category name and total value when minimized.
+User Interaction: Cards can be renamed or removed as needed. New categories can be created and labeled.
+Fields Within Each Card:
+Asset Name: Text entry for each asset or account name.
+Value: Numeric field for asset value, with real-time validation (no negatives or non-numeric input).
+Management Status: Toggle to mark assets as Managed or Unmanaged; default is Unmanaged.
+Nest Egg Inclusion: Toggle to include or exclude from the Nest Egg Total; default is included.
+Card Auto-Arrangement: Newly added cards stack below existing ones in a consistent two-column format.
+3.3. Data Calculations & Real-Time Feedback
+Instant Calculation: All totals (Total Assets, Total Nest Egg, subtotals) update instantly when values are entered or toggles are adjusted.
+Progress Indicator: A small “Calculating…” spinner appears briefly for any calculations taking more than a second.
+4. Error Handling & Validation
+Validation Rules:
+Numeric fields (e.g., asset values) reject negative entries or text, providing immediate visual feedback for errors (e.g., red outline).
+Required fields, such as client name and birthdate, show a prompt if left blank.
+Automatic Saving:
+Data auto-saves as users switch between tabs, with a brief “Saving…” indicator to confirm.
+5. PDF Report Generation
+Report Button: Located in the sidebar, allowing quick access at any stage.
+Generation Confirmation: Advisors see a prompt before generating the PDF to verify they’re ready to export.
+Progress Bar: A brief progress indicator shows report creation status, essential for larger data sets or complex calculations.
+6. Mobile Responsiveness
+Single-Column Card Stack on Mobile: Cards stack vertically to accommodate smaller screens, ensuring ease of entry on mobile or tablet.
+Mobile-Friendly Inputs: Buttons, toggles, and text fields are optimized for tapping.

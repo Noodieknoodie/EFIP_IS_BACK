@@ -1,0 +1,31 @@
+CURRENTLY INSTALLED: Streamlit, Pandas, reportlab, Jinja2, Numpy, matplotlib, plotly, watchdog
+
+File Hierarchy atm:
+config
+config\settings.py
+data
+data\clients
+data\sample_client.json
+reports
+reports\generated_reports
+templates
+templates\report_template.html
+utils
+app.py
+
+
+
+/// TASK 1 ///
+please create files as needed to get the foundations of a streamlit app running. begin with a collapsible sidebar where the user can select a client, add a client, modify / delete a client.
+then, for the main page, have a tabbed interface with 5 tabs:
+1. Client Information
+2. Assets and Liabilities
+3. Cash Flow
+4. Balance Sheet
+5. projections
+
+
+// lets start with this for now, just getting the foundations of the app running. and then from there we can build out the functionality and add to it. Please make this able to be built off of and follow good practices - you have free reign to create files as needed and do whatever you need to take ownershit of this foundation building.
+
+
+

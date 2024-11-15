@@ -1,0 +1,3 @@
+# Hide all pages from the default navigation
+[pages]
+visibility = "hidden" 
